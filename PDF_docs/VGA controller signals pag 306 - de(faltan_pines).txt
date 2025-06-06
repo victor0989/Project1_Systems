@@ -1,0 +1,160 @@
+//VGA controller signals pag 306 <- detector posible detector signals/python algorithm <_alexander github
+//306, 285 VGA controller
+//131 FIFO buffer
+//304 small VGA controller to detect signals or for other hardware components
+/interesantes para procesamiento de señal, escáneres y proyector de video con VDMA en vivado-Xilinx/escáneres, sensores/HDMI y procesamiento resonancia magnética en hospital con fpga
+//Para copilot: Copilot, los pines físicos de mi xdc o de mi board se deben de sustituir o de clarar en el primer entity donde están los puertos
+y en donde veas _: <= sustituir por un pin físico con sentido como HDMI/FMC/MEZZAZINE/PMOD/GPIO etc.. lo que veas que si o si puede funcionar en un circuito se practico y claro
+
+//415 VHDL code PicoBlaze with 
+signal for LED interface seven LEDS
+
+entity pico_btn is
+   port(
+      _, _: in std_logic;
+      _: in std_logic_vector(7 downto 0);
+      _: in std_logic_vector(1 downto 0);
+      _: out std_logic_vector(3 downto 0);
+      _: out std_logic_vector(7 downto 0)
+);
+end pico_btn;
+
+architecture arch of pico_btn is
+-- KCPSM3/ROM signals
+signal address: std_logic_vector(9 downto 0);
+-- signals
+signal instruction: std_logic_vector(17 downto 0);
+signal
+
+-- mi objetivo es escribir los programas de ensamblador, el riscvV algo similar pero para
+-- detección de obstáculos espaciales o memoria del procesador con señales.algo ligero que imite la lógica de KCPSM3/ROM signals
+-- para equipos médicos de los astronautas y también para transmisión de datos general
+-- necesito una gran base de datos de prototipos de VHDL y verilog y adaptarlos con vivado a los pines físicos de la placa ZCU106, ZCU102 o las placas que
+-- se usen ya en misiones espaciales para la transmisión de datos, equipos médicos para detectar los síntomas de enfermedad o temperatura
+-- cámaras del ISS, estas cámaras se encuentrn en mi repositorio de GitHub
+
+-- pag 415
+-- signals
+signal instruction: std_logic_vector(17 downto 0);
+signal port_id: std_logic_vector(7 downto 0);
+signal in_port, out_port: std_logic_vector(7 downto 0);
+signal write_strobe, read_strobe: std_logic;
+signal interrupt, interrupt_ack: std_logic;
+signal kcpsm_reset: std_logic;
+-- I/O port signals
+-- output enable
+signal ds3_reg, ds2_reg: std_logic_vector(7 downto 0);
+signal ds1_reg, ds2_reg: std_logic_vector(7 downto 0);
+-- two pussbuttons
+signal btnc_flag_reg, btnc_flag_next: std_logic;
+signal btns_flag_reg, btns_flag_next: std_logic;
+signal set_btnc_flag, set_btns_flag: std_logic;
+signal clr_btn_flag: std_logic;
+begin
+-- I/O modules
+-- disp_unit: entity work.disp_mux
+   port map(
+      _=>_, _=>'0',
+      _=>ds3_reg, in2=>ds2_reg, in1=>ds1_reg,
+in0=>ds0_reg, an=>an, _=>_);
+-- I/O modules
+-- disp_unit: entity work.disp_mux
+   port map(
+      _=>_, _=>'0',
+      in3=>ds3_reg, in2=>ds2_reg, in1=>ds1_reg,
+      in0=>ds0_reg, _=>_, _=>_);
+
+-- btnc_db_unit: entity work.debounce 416
+port map(
+   _=>_, _=>_, _=>_(0),
+   db_level=>open, db_tick=>set_btns_flag);
+-- KCPSM and ROM instantiation
+-- signals just signals
+port map(_=>_, _=>kscpsm_reset,
+address=>address, instruction=>instruction, _=>_, _=>_, _=>_, in_port=>in_port, interrupt=>interrupt, interrupt_ack=>interrupt_ack);
+
+-- entity signals rom_unit
+port map(_=>_, _=>_, _=>_);
+-- unused inputs on processor
+kcpsm_reset <= '0';
+interrupt <= '0';
+-- output interface
+-- outport port id:
+-- 0x00: ds0
+-- 0x01: ds1
+-- 0x02: ds2
+-- 0x03: ds3
+-- 0x04: ds4
+-- registers
+process (_)
+begin
+   if (_'event and _='1') then
+       if end_d(0)='1' then ds0_reg <= out_port; end if;
+       if end_d(1)='1' then ds1_reg <= out_port; end if;
+       if end_d(2)='1' then ds2_reg <= out_port; end if;
+if en-d(3)=’1’ then ds3-reg <= out-port; end if; 
+end if ; 
+end process; 
+__ decoding circuit for enable signals 
+process(port_id, write_strobe)
+begin
+   en_d <= (others=>'0');
+   if write_strobe='1' then
+      case port_id(1 downto 0) is
+         when "00" => en_d => en_d <="0001";
+when "01" => en_d <="0010";
+-- pagina 417 386
+when "10" => en_d <="0100";
+when others => en_d <="1000";
+end case;
+end if;
+end process;
+-- input interface
+__ 
+input interface 
+input port id 
+0x00: f lag 
+0x01: switch 
+__ input register ( for f lags) 
+process(_)
+begin
+   if (_'evento and _='1') then
+      btnc_flag_reg <= btnc_flag_next;
+      btnc_flag_reg <= btns_flag_next;
+end if;
+end process;
+
+btn_flag_next <= '1' when set_btnc_flag='1' else
+'0' when clr_btn_flag='1' else
+btn_flag_reg;
+btns_flag_next <= '1' when set_btns_flag='1' else
+'0' when clr_btn_flag='1' else
+btns_flag_reg;
+-- decode circuit for clear signals
+clr_btn_flag <='1' when read_strobe='1' and
+_(0)='0' else
+'0';
+
+-- input multiplexing
+process(_,_,_,_)
+begin
+   case _(0) =>
+       when '0' =>
+          in_port <= "000000" &
+                     btns_flag_reg & btnc_flag_reg;
+when others =>
+    in_port <= _;
+end case;
+end process;
+end arch;
+
+SQUARE PROGRAM WITH A COMBINATIONAL MULTIPLIER AND 
+UART CONSOLE (IDEA), we add two more IiO peripherals to the previous design. One is a combi- 
+national multiplier, which accelerates the multiplication, and the other is an UART, which 
+provides a communication link to a PC. 
+
+
+
+
+
+

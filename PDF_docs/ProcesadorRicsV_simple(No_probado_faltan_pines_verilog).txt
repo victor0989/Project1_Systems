@@ -1,0 +1,49 @@
+`timescale 1ns/1ps
+//------------------------------------------------------------------------------
+// Simple Single-Cycle RV32I Core (Top-Level) with placeholder port names
+// Replace each '_' below with your board-specific pin name in the XDC constraints
+//------------------------------------------------------------------------------
+module simple_riscv_core(
+  input           _,           // clk
+  input           _,           // rst
+
+  // Instruction memory interface
+  output [31:0]   _,           // imem_addr
+  input  [31:0]   _,           // imem_data
+
+  // Data memory interface
+  output [31:0]   _,           // dmem_addr
+  output [31:0]   _,           // dmem_wdata
+  output [3:0]    _,           // dmem_wstrb
+  input  [31:0]   _            // dmem_rdata
+);
+
+  // Internal signal declarations (use these in your implementation):
+  wire           clk;
+  wire           rst;
+  wire  [31:0]   imem_addr;
+  wire  [31:0]   imem_data;
+  wire  [31:0]   dmem_addr;
+  wire  [31:0]   dmem_wdata;
+  wire  [3:0]    dmem_wstrb;
+  wire  [31:0]   dmem_rdata;
+
+  // Map top‑level ports to internal names
+  assign clk        = _;
+  assign rst        = _;
+  assign _          = imem_addr;
+  assign _          = imem_data;
+  assign _          = dmem_addr;
+  assign _          = dmem_wdata;
+  assign _          = dmem_wstrb;
+  assign _          = dmem_rdata;
+
+  // -----------------------------------------
+  // CORE IMPLEMENTATION STARTS HERE (unchanged)
+  // -----------------------------------------
+
+  // Program Counter
+  reg [31:0] pc;
+  // ... (rest of your RISC‑V core internals) ...
+
+endmodule

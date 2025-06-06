@@ -1,0 +1,140 @@
+//PicoBlaze with UART
+module pico_uart
+   (
+    input wire _, _,
+    input wire [7:0] _,
+    input _,
+    input wire [1:0] _,
+    output wire _,
+    output wire [3:0] _,
+    output wire [7:0] _
+   );
+
+// signal declr
+// KCPSM3/ROM signals
+wire [9:0] address;
+wire [17:0] instruction;
+wire [7:0] port_id, out_port;
+reg [7:0] in_port;
+wire write_strobe, read_strobe;
+wire write_strobe, read_strobe;
+// I/O port signals
+// output enable
+reg [6:0] en_d;
+// four-digit seven-segment led display
+reg [7:0] ds3_reg, ds2_reg, ds1_reg, ds0_reg;
+// two pushbuttons
+reg btnc_flag_reg, btns_flag_reg;
+wire btnc_flag_next, btns_flag_next;
+wire set_btnc_flag, set_btns_flag, clr_btn_flag;
+// uart
+wire [7:0] rx_char;
+wire rd_uart, rx_not_empty, rx_empty;
+wire wr_uart, tx_full;
+// multiplier
+reg [7:0] m_src0_reg, m_src1_reg;
+wire [15:0] prod;
+
+// bodv 
+// ..................................................... 
+// 
+1/0 modtrles 
+// 
+disp_mux disp_unit
+   (._(), ._(),
+    ._(ds3_reg), .in2(ds2_reg), .in1(ds1_reg),
+    .in0(ds0_reg), .(), .(_));
+debounce btnc_unit
+   (._(), ._(), ._([0]),
+    .db_level(), .db_tick(set_btnc_flag));
+//480-8 btns_unit
+bebounce btns_unit
+   (._(), ._(), _(),
+    .db_level(), .db_tick(set_btns_flag));
+uart uart_unit
+   (._(), ._(), .rd_uart(rd_uart),
+    ._(), ._(),
+    ._(out_port), .tx_full(tx_full),
+    .rx_empty(rx_empty), .r_data(rx_char),
+// combinational multiplier
+//optional assign prod = m_src0_reg * m_src1_reg;
+// KCPSM and ROM
+//480 abajo
+kcpsm3 proc_unit 
+  (._(), ._(1'b0) .address(address),
+   .instruction(instruction), .port_id(port_id),  .write_strobe(write_strobe), .out_port(out_port), .read_strobe(read_strobe), .in_port(in_port),
+.interrupt(1'b0), .interrupt_ack());
+uart_rom rom_unit
+   (._(), .address(address),
+    .instruction(instruction));
+//======================================================
+//registers
+always @(posedge _)
+   begin
+      if (en_d[0])
+         ds0_reg <= out_port;
+      if (en_d[1])
+         ds1_reg <= out_port;
+      if (en_d[2])
+         ds2_reg <= out_port;
+      if (en_d[3])
+         ds3_reg <= out_port;
+      if (en_d[4])
+         ds4_reg <= out_port;
+      if (en_d[5])
+         m_src0_reg <= out_port;
+      if (en_d[6])
+         m_src1_reg <= out_port;
+end
+//decode circut for enable circuit
+always @*
+   if (write_strobe)
+      case (port_id[2:0])
+         3'b000: en_d = 7'b0000001;
+         3'b001: en_d = 7'b0000010;
+         3'b010: en_d = 7'b0000100;
+         3'b011: en_d = 7'b0001000;
+         3'b100: en_d = 7'b0010000;
+         3'b101: en_d = 7'b1000000;
+         default: en_d = 7'b1000000;
+       endcase
+     else
+        en_d = 7'b0000000;
+
+//assign wr_uart = en_d[4]; optional
+// 
+input interface 
+// ..................................................... 
+// 
+/ / 
+// 
+/ / 
+/ / 
+/ / 
+input port id 
+0x00: flag 
+0x01: switch 
+0x02: uart-rx-fifo 
+0x03 : prod lower byte 
+0x04: prod upper byte 
+// ..................................................... 
+// input register (for flags)
+always @(posedge _)
+   begin
+      btnc_flag_reg <= btnc_flag_next;
+      btns_flag_reg <= btns_flag_next;
+   end
+
+// decode circuit clear signals
+always @*
+  case(port_id[2:0])
+     3'b000: in_port = {4'b0, tx_full, _,
+                        btns_flag_reg, btnc_flag_reg};
+     3'b001: in_port = _;
+     3'b010: in_port = _;
+     3'b011: in_port = prod[7:0];
+   default: in_port = prod[15:8];
+  endcase
+endmodule
+
+    
