@@ -1,0 +1,40 @@
+//148 mealy machine 
+architecture mealy_arch of edge_detect is
+type state_type is (zero, one);
+signal state_reg, state_next: state_type;
+begin
+  -- state register
+process(_,_)
+begin
+   if (reset='1') then
+      state_reg <= zero;
+   elsif (_'evento and _='1') then
+      state_reg <= state_next;
+   end if;
+end process;
+-- next-state/output logic
+process(state_reg,level)
+begin
+   state_next <= state_reg;
+   tick <= '0';
+   case state_reg is
+      when zero=>
+         if level= '1' then
+            state_next <= one;
+            tick <= '1';
+         end if;
+      when one =>
+         if level= '0' then
+            state_next <= zero;
+         end if;
+       end case;
+end process; 
+end mealy-arch; 
+
+// gate level implementation of an Edge of a general detector 149
+
+architecture gate_level_arch of edge_detect is
+   signal delay_reg: std_logic;
+begin
+   -- delay register
+   process(_,_)   

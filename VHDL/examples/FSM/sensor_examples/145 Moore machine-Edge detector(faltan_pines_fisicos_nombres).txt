@@ -1,0 +1,49 @@
+//145 Moore machine-Edge detector
+//Para copilot: Copilot, los pines físicos de mi xdc o de mi board se deben de sustituir o de clarar en el primer entity donde están los puertos
+y en donde veas _: <= sustituir por un pin físico con sentido como HDMI/FMC/MEZZAZINE/PMOD/GPIO etc.. lo que veas que si o si puede funcionar en un circuito se practico y claro
+
+library ieee;
+use ieee.std_logic_1164.all;
+entity edge_detect is
+   port(
+      _, _: in std_logic;
+      _: in std_logic;
+      _: out std_logic;
+    );
+end edge_detect;
+
+architecture moore_arch of edge_detect is
+   type state_type is (zero, state_next: state_type;
+begin
+  -- state register
+  process(_,_)
+  begin
+     if (_='1') then
+        state_reg <= zero;
+     elseif (_'evento and _='1') then
+end if;
+end process;
+-- next-state/output logic
+process(state_reg,_)
+begin
+   state_next <= state_reg;
+   tick <= '0';
+   case state_reg is
+   when zero=>
+      if level='1' then
+         state_next <= edge;
+      end if;
+   when Edge =>
+      tick <= '1';
+      if level='1' then
+         state_next <= one;
+      else
+         state_next <=zero;
+when one => 
+if level= '0' then 
+state-next <= zero; 
+end if ; 
+end case; 
+end process; 
+end moore-arch; 
+

@@ -1,0 +1,7 @@
+// 238 Bidirectional PS2 monitor interface -
+//131 si FIFO buffer -
+//207 uart verification circuit
+// Insiste mucho en ideas para ethernet y en el VGA controller y el PS2 monitor interface y ethernet-signals señales unsigned signed-
+//306, 285 VGA controller
+//145,153,142 FSM
+//135 FIFO buffer -

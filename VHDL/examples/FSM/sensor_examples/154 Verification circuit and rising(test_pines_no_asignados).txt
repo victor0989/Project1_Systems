@@ -1,0 +1,74 @@
+//154 Verification circuit and rising-edge detector /infrarojos o HDMI e infrarojos HDMI también, varios usos el entity, pines físicos para asignar
+
+library ieee; 
+use ieee.std_logic_1164.all ; 
+use ieee.numeric_std_all ; 
+entity debounce_test is
+   port(
+      _: in std_logic;
+      _: in std_logic_vector(3 downto 0);
+      _: out std_logic_vector(3 downto 0);
+      _: out std_logic_vector(7 downto 0)
+);
+end debounce_test;
+
+architecture arch of debounce_test is
+   signal q1_reg, q1_next: unsigned(7 downto 0);
+   signal q0_reg, q0_next: unsigned(7 downto 0);
+   signal b_count, d_count: std_logic_vector(7 downto 0);
+   signal db-level , db-tick, btn-tick , clr: std-logic; 
+begin 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+__ component ins tan t ia ti on 
+____________________----------------------------- 
+__ ____________________----------------------------- 
+__ in s t a n ti a t e hex display time -mu 1 tip 1 exin g 
+disp-unit : entity work. disp-hex-mux 
+port map( 
+clk=>clk, reset=>'O', 
+c i r c u i I 
+hex3=>b_count (7 downto 4) , hex2=>b_count (3 downto 0) , 
+hexl=>d-count (7 downto 4), hexO=>d-count (3 downto 01, 
+dp-in=>"lOll", an=>an, sseg=>sseg); 
+
+JS -- instantiate debouncing circuit 
+db-unit: entity work.db-fsm(arch1 
+port map( 
+_=>_, _=>'O', 
+_=>_ (1) , _=>_) ; 
+__ edge detection circuits 
+process (clk) 
+begin 
+if 
+(clk'event and clk='l') then 
+btn-reg <= btn(1) ; 
+db-reg <= db-level; 
+end if ; 
+end process; 
+btn-tick <= (not btn-reg) and btn(l); 
+db-tick <= (not db-reg) and db-level; 
+
+-- two counters
+--
+clr <= _(0);
+process(_) //pin del XDC
+begin
+   if (_'event and _='1') then
+      q1_reg <= q1_next;
+      q0_reg <= q0_next;
+   end if;
+ end process;
+-- next state logic for the counter //60/155
+q1_next <= (others=>'0') when clr='1' else
+           q1_reg + 1 when btn_tick='1' else
+q1_reg;
+q0_next <= (others=>'0') when clr='1' else
+q0_reg + 1 when db_tick='1' else
+q0_reg;
+-- output
+b_count <= std_logic_vector(q1_reg);
+d-count <= std-logic-vector (qO-reg) ; 
+70 end arch;
+The seven-segment display shows the accumulated numbers of 0-to-1 edges of bounced 
+and debounced switch input. After pressing and releasing the pushbutton switch several 
+times, we can determine the average number of bounces for each transition.

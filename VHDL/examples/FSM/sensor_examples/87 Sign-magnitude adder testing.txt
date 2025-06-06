@@ -1,0 +1,161 @@
+//87 Sign-magnitude adder testing
+//circuit
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+entity sm_add_test is
+   port(
+      clk   : in std_logic;
+      btn   : in std_logic_vector(1 downto 0);
+      sw    : in std_logic_vector(7 downto 0);
+      an    : out std_logic_vector(3 downto 0);
+      sseg  : out std_logic_vector(7 downto 0)
+);
+end sm_add_test;
+
+architecture arch of sm_add_test is
+   signal sum, mout, oct   : std_logic_vector(3 downto 0);
+   signal led3, led2, led1, led0  :
+std_logic_vector(7 downto 0);
+begin
+  -- instantiate adder
+  sm_adder_unit : entity work.sign_mag_add
+  generic map(N => 4)
+  port map(
+     a  => sw(3 downto 0),
+     b  => sw(7 downto 4),
+     sum => sum
+   );
+-- 3-to-1 mux to select a number to display
+with btn select
+   mout <= sw(3 downto 0) when "00", -- a
+           sw(7 downto 4) when "01",
+-- b
+           sum when others;  --sum
+
+-- magnitude displayed on rightmost 7-seg LED
+oct <= '0' & mout(2 downto 0);
+sseg_unit : entity work.hex_to_sseg
+   port map(hex => oct, dp => '1', sseg => led0);
+
+-- sign displayed on 2nd 7-seg LED
+led1 <= "10111111" when mout(3) = '1' else -- middle bar
+        "11111111"; --blank
+-- other two 7-seg LEDs blank
+led2 <= "11111111";
+led3 <= "11111111";
+
+-- instantiate display multiplexer
+ disp_unit : entity work.disp_mux
+ port map(
+ clk => clk,
+ reset => ’0’,
+ in0 => led0,
+ in1 => led1,
+ in2 => led2,
+ in3 => led3,
+ an => an,
+ sseg => sseg
+ );
+ end arch;
+
+***************************************************************************************
+Operator type
+ exponential, absolute value
+ ** abs
+ logical
+ and or nand nor xor xnor not
+ multip., division, module, remainer
+ * / mod rem
+ addition, subtraction
+ + 
+identity, negation
+ +
+ concatenate, shift, rotate
+ & sll srl
+ relational
+ sla sra
+ rol ror
+ = /= < <= > >=
+**********************************************************************************
+ Operator Name
+ Explanation
+ Chapter 6: VHDL Operators
+ =
+ equivalence
+ is some value equivalent to some other value?
+ =
+ <
+ <=
+ >
+ >=
+ non-equivalence
+ less than
+ less than or equal
+ greater than
+ is some value not equivalent to some other value?
+ is some value less than some other value?
+ is some value less than or equal to some other value?
+ is some value greater than some other value?
+ greater than or equal is some value greater than or equal to some other value?
+**************************************************************************************************
+ Operator
+ logical
+ sll
+ srl
+ shift left logical
+ shift right logical
+ result <= 10010101 sll 2
+ result <= 10010101 srl 3
+ 01010100
+ 00010010
+ arithmetic
+ sla
+ sra
+ shift left arithmetic
+ shift right arithmetic
+ result <= 10010101 sla 3
+ result <= 10010101 sra 2
+ 10101111
+ 11100101
+ rotate
+ rol
+ ror
+ rotate left
+ rotate right
+ result <= 101000 rol 2
+ result <= 101001 ror 2
+ 100010
+ 011010
+********************************************************************************************************
+signal A_val, B_val : std_logic_vector(3 downto 0);
+signal C_val : std_logic_vector(5 downto 0);
+signal D_val : std_logic_vector(7 downto 0);
+------
+-- pag 86
+C_val <= A_val & "00";
+C_val <= "11" & B_val;
+C_val <= "0001" & C_val(3 downto 0);
+D_val <= A_val & B_val;
+
+-- Barrel shifter testing circuit
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+entity shifter_test is
+   port(
+      sw   : in std_logic_vector(7 downto 0);
+      btn  : in std_logic_vector(2 downto 0);
+      led  : out std_logic_vector(7 downto 0)
+end shifter_test;
+
+architecture arch of shifter_test is
+begin
+   shift_unit : entity work.barrel_shifter(multi_stage_arch)
+   port map(
+      a  => sw,
+      amt => btn,
+      y   => led
+     );
+  end arch;

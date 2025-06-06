@@ -1,0 +1,24 @@
+//238 Bidirectional PS2 interface posible sensor for PS2 key and mouse etc_ USB??
+//Copilot sustituye pines físicos que te pase de xdc
+//Para copilot: Copilot, los pines físicos de mi xdc o de mi board se deben de sustituir o de clarar en el primer entity donde están los puertos
+y en donde veas _: <= sustituir por un pin físico con sentido como HDMI/FMC/MEZZAZINE/PMOD/GPIO etc.. lo que veas que si o si puede funcionar en un circuito se practico y claro
+
+library ieee;
+use ieee.std_logic_1164.all;
+entity ps2_rxtx is
+   port (
+      _, _: in std_logic;
+      _: std_logic;
+      _: in std_logic_vector(7 downto 0);
+      _: out std_logic_vector(7 downto 0);
+     _: out std_logic;
+     _: out std_logic;
+    _, _: inout std_logic;
+);
+end ps2_rxtx;
+
+architecture arch of ps2_rxtx is
+   signal tx_idle: std_logic;
+begin
+   ps2_tx_unit: entity work.ps2_tx(arch)
+      port map();

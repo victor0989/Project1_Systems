@@ -1,0 +1,7 @@
+// 131- 135 Testing circuit for a FIFO buffer/FIFO buffer
+//Para copilot: Copilot, los pines físicos de mi xdc o de mi board se deben de sustituir o de clarar en el primer entity donde están los puertos
+y en donde veas _: <= sustituir por un pin físico con sentido como HDMI/FMC/MEZZAZINE/PMOD/GPIO etc.. lo que veas que si o si puede funcionar en un circuito se practico y claro
+
+library ieee;
+use ieee.std_logic_1164.all;
+entity fifo_test is
