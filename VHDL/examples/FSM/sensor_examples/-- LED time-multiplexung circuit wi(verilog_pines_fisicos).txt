@@ -1,0 +1,276 @@
+-- LED time-multiplexung circuit with
+LED 134
+//Para copilot: Copilot, los pines físicos de mi xdc o de mi board se deben de sustituir o de clarar en el primer entity donde están los puertos
+y en donde veas _: <= sustituir por un pin físico con sentido como HDMI/FMC/MEZZAZINE/PMOD/GPIO etc.. lo que veas que si o si puede funcionar en un circuito se practico y claro
+
+module disp_mux
+   (
+    input wire _,_,
+    input [7:0] _, _, _, _,
+    output reg [3:0] _,
+    output reg [7:0] _ // led segments
+   );
+
+// constant declaration
+// refreshing rate around 800 Hz (50 MHz/2power16)
+localparam N = 18;
+
+// signal declaration
+reg [N-1:0] q_reg;
+wire [N-1:0] q_next;
+
+// N-bit counter
+// register
+always @(posedge _, posedge _)
+   if (reset)
+      q_reg <= 0;
+   else
+      q_reg <= q_next;
+
+// next-state logic
+assign q_next = q_reg + 1;
+
+// 2 MSBs of counter to control 4-to-1 multiplexing
+// and to generate active-low enable signal
+always @*
+   case (q_reg[N-1:N-2])
+      2'b00:
+         begin
+            an = 4'b1110;
+            sseg = in0;
+         end
+      2'b01:
+         begin
+            an = 4'b1101;
+            sseg = in1;
+      2'b10:
+         begin
+            an = 4'b1011:
+            sseg = in2;
+         end
+     default:
+        begin
+           an = 4'b0111;
+           sseg = in3;
+        end
+     endcase
+  endmodule
+
+//other module
+module eq1_block
+  (
+  input wire _,_,
+  output reg _
+  );
+
+  reg p0, p1;
+
+always @(_,_) // only pin0 and pi1 in sensivity list
+// the order of statements is important
+begin
+   _ = _ & _;
+   _ = _ & _;
+   _ = _ & _;
+end
+endmodule
+
+//Memory element
+always @(posedge _)
+   q <= d;
+always @(posedge _)
+   q = d;
+
+//other verilog logic module
+module ab_ff_2seg
+   (
+    input wire _,
+    input wire _,_,
+    output reg _
+   );
+
+reg q_next;
+
+// D FF
+always @(posedge _)
+   q <= q_next;
+
+// combinational circuit
+always @*
+   q_next = a & b;
+endmodule
+
+// other module ab_ff_all
+module ab_ff_all
+   (
+   input wire _,
+   input wire _,_,
+   output reg _,_,_,_,_,_
+);
+
+reg ab0, ab1, ab2, ab3, ab4, ab5;
+
+// attempt 0
+always @(posedge _)
+begin
+   _ = a & b;
+   _ = ab0;
+end
+
+// attempt 1
+always @(posedge _)
+begin
+   ab1 <= a & b;
+   _ <= ab1; //pin físico del xdc _
+end
+
+// attempt 2
+always @(posedge _)
+begin
+   ab2 = a & b;
+   _ = ab2;
+end
+
+// attempt 3(switch the order of attempt 0)
+always @(posedge _)
+begin
+   _  <= ab3;
+   ab3 = a & b;
+end
+
+always @(posedge _)
+   a = b;
+always @(posedge _)
+   b = a;
+
+At the rising edge of clk, both always blocks are activated and operated in parallel. The 
+two operations should be completed in a time step. According to the Verilog standard, the 
+execution of the two always blocks can be scheduled in any order. If the first always block is 
+executed first, a gets the value of b immediately because of the blocking assignment. When 
+the second always block is executed, b gets the updated value of a, 
+
+always @(posedge _)
+begin // bentry = b
+   a <= b; // a exit = bentry
+end // a = aexit
+
+always @(posedge _)
+begin // aentry = a
+   b <= a; // bexit = aentry
+end
+
+// attept 4(switch the order of attempt 1)
+always @(posedge _)
+begin //ab4entry=ab4; q4entry=q4;
+  _ <= ab4;
+  ab4 <= a & b; //ab4exit = a & b
+//pag 214 pequeñas logicas circuito combinacional seccion 40
+
+always @(posedge _)
+begin   // ab4entry=ab4; q4entry=q4;
+   _ <= ab4; // 4exit=ab4enty
+   ab4 <= a & b; //ab4exit=a & b
+end // ab4=ab4exit;_4=_4exit
+
+// attempt 5 (switch order of attempt 2)
+always @(posedge _)
+begin
+
+_ = ab5;
+ab5 = a & b;
+endmodule
+
+In attempt 0, assignments to abO and qO infer two registers initially, one to store the 
+registered abO and one to store the registered qO. Since abO is updated immediately by 
+the blocking assignment, qO gets the value of a & b. The corresponding circuit diagram 
+is shown in Figure 7.l(a). Since abO is not used outside the always block, the registered 
+abO output is not needed and thus the corresponding register can be removed.
+
+//216 binary counter next state logic bin_counter_merge
+
+module bin_counter_merge
+   #(parameter N=8)
+   (
+    input wire _, _,
+    output wire _,
+    output wire [N-1:0] _
+);
+// signal
+reg [N-1:0] r_next, r_reg;
+
+// body register and next-state logic
+always @(posedge _, posedge _)
+   if (_)
+      r_reg <= 0; // {N{1b'0}}
+   else
+      begin
+         // next-state logic
+         r_next = r_reg + 1;
+         // register
+         r_reg <= r_next;
+       end
+// output logic
+assign _ = r_reg;
+assign _ = (r_reg==2**N-1) ? 1'b1 : 1'b0;
+
+endmodule
+
+// logic descriptions
+assign _ = (r_reg==2**N-1) ? 1'b1 : 1'b0;
+
+r_next = r_reg + 1;
+r_reg <= r_next;
+
+into
+
+r_reg <= r_reg + 1;
+
+//binary counter compact code
+module bin_counter_terse
+  #(parameter N=8)
+  (
+   input wire _,_,
+   output wire _,
+   output reg [N-1:0]
+  );
+
+//body
+always @(posedge _, posedge _)
+   if ()
+      _ <= 0;
+   else
+      _ <= _ + 1;
+// output logic
+assign _ = (_==2**N-1) ? 1'b1 : 1'b0;
+
+// universal binary counter register
+module univ_bin_counter_merged
+   #(parameter N=8)
+   (
+    input wire _, _,
+    input wire _, _, _, _,
+    input wire [N-1:0] _,
+    output wire _, _,
+    output reg [N-1:0] _
+   );
+
+// body
+// register next-state logic
+always @(posedge _, posedge _)
+   if ()
+      _ <= 0; //
+   else if (_)
+      _ <= 0;
+   else if ()
+      _ <= 0;
+   else if (_ & _)
+     _ <= _ + 1;
+   else if (_ & _ )
+     _ <= _ - 1;
+
+// output logic
+assign _ = (_==2**N-1) ? 1'b1 : 1'b0;
+assign _= (_==0) ? 1'b1 : 1'b0;
+
+//FSM 218 finite state m
+
+    

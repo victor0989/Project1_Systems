@@ -1,0 +1,54 @@
+-- ROM with synchronous read
+-- modified from XST 8.1i rams_21c
+
+use ieee.numeric_std.all;
+entity xilinx_rom_sync_template is
+   port(
+      _: in std_logic;
+      _: in std_logic_vector(3 downto 0);
+      _: out std_logic_vector(6 downto 0)
+);
+end xilinx_rom_sync_template;
+
+architecture arch of xilinx_rom_sync_template is
+   constant ADDR_WIDTH: integer:=4;
+   constant DATA_WIDTH: integer:=7;
+   type rom_type is array (0 to 2**ADDR_WIDTH-1)
+        of std_logic_vector(DATA_WIDTH-1 downto 0);
+-- ROM definition
+constant HEX2LED-ROM: rom-type :=( -- 2*4-by-7 
+"0000001' , -- addr 00 
+"1001111", -- addr 01 
+"OOlOOlO", -- addr 02 
+"0000110", -- addr 03 
+"1001100", -- addr 04 
+"0100100", -- addr 05 
+"0100000", -- addr 06 
+"0001111", -- addr 07 
+" 0000000 " 
+, -- addr 08 
+"OOOOlOO", -- addr 09 
+"0001000", -- addr 10 
+"llOOOOO", -- addr 11 
+"OllOOOl", -- addr 12 
+"lOOOOlO', -- addr 13
+"0110000"  -- addr 15
+);
+signal addr_reg: std_logic_vector(ADDR_WIDTH-1 downto 0);
+begin
+   -- addr register to infer block RAM
+process ()
+begin
+   if (_'event and _ = '1') then
+     addr_reg <= addr;
+   end if;
+  end process;
+  data <= HEX2LED_ROM(to_integer(unsigned(addr_reg)));
+end arch;
+
+The code is similar to that of the single-port RAM with synchronous read but with a 
+predefined constant. Note that operation of this ROM depends on the clock signal, and 
+its timing is different from that of a normal ROM. Artificial inclusion of the clock signal 
+is necessary to infer a block RAM for the ROM implementation. During synthesis, the 
+software automatically determines whether to use regular logic cells or block RAMS to 
+realize this circuit.

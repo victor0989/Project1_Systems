@@ -1,0 +1,82 @@
+# Adding I2C
+CONFIG_I2C=y
+
+# Add the accelerometer
+CONFIG_SENSOR=y
+CONFIG_LIS2DH=y
+CONFIG_LIS2DH_TRIGGER_GLOBAL_THREAD=y
+
+
+# sensor.h 
+
+/* Set trigger values */
+struct sensor_trigger trig;
+
+trig.type = SENSOR_TRIG_DATA_READY;
+trig.chan = SENSOR_CHAN_ACCEL_XYZ;
+
+rc = sensor_trigger_set(sensor, &trig, trigger_handler);
+if(rc !=0)
+{
+  printf("Failed to set trigger:" %d\n", rc);
+  return;
+}
+
+# sensor_value.h
+
+struct sensor_value attr;
+
+/* Set to 1.5G in m/s2
+attr.val1 = 0;
+attr.val2 =(int32_t)(SENSOR_G * 1.5);
+
+rc = sensor_attr_set(sensor, SENSOR_CHAN_ACCEL_XYZ,
+            SENSOR_ATTR_SLOPE_TH,&attr);
+if(rc<0)
+{
+LOG_ERR("Cannot set slope threshold.");
+return rc;
+}
+
+#readout value sensor 0.5: val = 0, val2 = 500000
+
+struct sensor_value{
+
+int32_t val1;
+
+int32_t val2;
+};
+
+# Sensor LOG_DBG()
+
+LOG_DGB("Accel trig");
+
+int64_t uptime = k_uptime_get();
+
+/* Prevent constant triggers */
+if (uptime >(last_trigger + m_config.trigger_interval * MSEC_PER_SEC) || last_trigger == 0)
+{
+
+   APP_EVENT_MANAGER_PUSH(APP_EVENT_MOTION_EVENT);
+   last_trigger = uptime;
+}
+
+# sensor_value_error.h
+int err;
+struct sensor_value val[3];
+
+err = sensor_sample_fetch_chan(sensor, SENSOR_CHAN_ACCEL_XYZ);
+if (err)
+{
+    LOG_ERR("Unable to fetch data. Err: %i", err);
+    return err;
+
+}
+
+err = sensor_channel_get(sensor, SENSOR_CHAN_ACCEL_XYZ, val);
+if(err)
+{
+   LOG_ERR("Unable to get data. Err %", err);
+   return err;
+
+}

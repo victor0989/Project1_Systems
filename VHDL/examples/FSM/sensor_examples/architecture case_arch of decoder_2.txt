@@ -1,0 +1,46 @@
+architecture case_arch of decoder_2_4 is
+   signal s: std_logic_vector(2 downto 0);
+begin
+   s <= en & a;
+   process(s)
+   begin
+      case s is
+         when "000"|"001"|"010"|"011" =>
+          y <= "0000";
+         when "100" =>
+            y <= "0001";
+         when "101" =>
+            y <= "0010";
+         when "110" =>
+            y <= "0100";
+         when others =>
+            y <= "1000";
+       end case;
+     end process;
+  end case_arch;
+
+ large <= awhen a > b else b;
+ small <= bwhen a > b else a;
+
+process(a,b,c)
+begin
+   if (a > b) then
+      if (a > c) then
+         max <= a;
+      else
+         max <= c;
+      end if;
+   else
+      if (b > c) then
+         max <= b;
+      else
+         max <= c;
+      end if;
+     end if;
+   end process;
+
+max <= awhen ((a > b) and (a > c)) else
+ cwhen (a > b) else
+ bwhen (b > c) else
+ c;
+
