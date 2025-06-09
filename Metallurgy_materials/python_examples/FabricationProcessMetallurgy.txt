@@ -1,0 +1,20 @@
+5. Manufacturing Process Summary
+Selection and mixing of special alloys.
+
+Continuous casting and melting to form ingots.
+
+Hot rolling for initial forming of basic parts.
+
+Shape rolling for specific shapes (nozzles, rings, supports).
+
+Cold rolling for parts with critical tolerances (shaft, seals).
+
+Heat treatments to optimize strength and ductility.
+
+Assembly with laser welding and dimensional control.
+
+Application of thermal and protective coatings.
+
+Integration of sensors and electronic systems.
+
+Non-destructive testing and final calibration.

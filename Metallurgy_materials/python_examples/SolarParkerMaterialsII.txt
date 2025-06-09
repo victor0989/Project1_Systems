@@ -1,0 +1,44 @@
+SOLARPARKERPROBE_MATERIALS_II/
+│
+├── jet_engine/
+│   ├── diffuser.py
+│   ├── compressor.py
+│   ├── combustion_chamber.py
+│   ├── turbine.py
+│   └── nozzle.py
+│
+├── spacecraft/
+│   ├── jet_engines.py
+│   ├── fuel_system.py
+│   └── control_system.py
+│
+├── thermal_control/
+│   ├── system_config.py
+│   ├── testing_cases.py
+│   └── simulations.py
+│
+├── black_hole_metrics/
+│   ├── frolov.py
+│   ├── schwarzschild.py
+│   └── kerr.py
+│
+├── propulsion/
+│   ├── plasma_propulsion.py
+│   ├── fuel_oxidizers.py
+│   └── plasma_tensor_converter.py
+│
+├── materials/
+│   ├── radiation_resistance.py
+│   ├── ablative_shield.py
+│   └── c_c_composite.py
+│
+├── calculations/
+│   ├── compressor_stage.py
+│   ├── turbine_nozzle.py
+│   └── axial_vs_centrifugal.py
+│
+├── utils/
+│   ├── constants.py
+│   └── formulas.py
+│
+└── main.py

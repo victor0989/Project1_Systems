@@ -1,0 +1,27 @@
+SOLARPARKERPROBE_MATERIALS/
+│
+├── main.py
+├── components/
+│   ├── jet_engine.py
+│   ├── spacecraft.py
+│   ├── turbine_nozzle.py
+│
+├── physics/
+│   ├── blackhole_metrics.py
+│   ├── plasma_interactions.py
+│
+├── thermals/
+│   ├── thermal_control.py
+│   ├── thermal_testing.py
+│
+├── calculations/
+│   ├── compressors.py
+│   ├── axial_relations.py
+│
+├── materials/
+│   ├── shielding.py
+│   ├── cooling_fluids.py
+│
+└── utils/
+    ├── constants.py
+    ├── helpers.py

@@ -1,0 +1,7 @@
+| Material | Key Properties | Strength |
+| -------------------------------------------------------- | ------------------------------------------------------ | --------------------------------------------------------- |
+| **Reinforced Carbon-Carbon (RCC)** + **Tungsten Fibers** | Heat-resistant core, reinforced with W-mesh | 4000+ °C, structural strength in gravitational tides |
+| **Graphene Oxide Matrix** + **Titanium Foam Core** | Super lightness + alpha/cosmic particle protection | 20x stronger than steel, energy absorption |
+| **C/C + SiC UltraLayered** | Antioxidant, thermal shock resistance | Applicable in suits, shields, and outer layers |
+| **Aerographite Nanofoam Sandwich** | Absorbs micro and macro meteorite impacts | Ideal for passive ship shields |
+| **Diamond Nanothreads Matrix** | Extreme tensile strength and heat dissipation | Applicable in joints, robotic arms, suit-ship union |

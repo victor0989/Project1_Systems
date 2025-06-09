@@ -1,0 +1,47 @@
+=================== ADVANCED SPACECRAFT SYSTEM SCRIPT ===================
+
+MISSION PROFILE:
+Design a next-generation spacecraft inspired by the SpaceX Falcon 9,
+equipped with plasma-based propulsion and alternative fuel systems for
+operations in weak atmospheres and high-radiation planetary environments.
+
+VISUAL ENVIRONMENT:
+- Background: Low Earth orbit or eroded planetary surface (solar storm damage)
+- Plasma Effects: Blue/purple magnetic exhaust jets from VASIMR thrusters
+- Materials: High-detail composites with ceramic, titanium alloy, and
+  radiation-shield coatings
+- Technical Labels: e.g. "RF PPU 48 kW", "ICRH Booster", "Specific Impulse: 5000s"
+
+STRUCTURAL COMPONENTS:
+- Composite Fuselage: Advanced radiation/thermal shielding
+- Modular Hull Sections: For maintenance under disaster-resilient conditions
+- Surface Wear: Simulated micrometeorite abrasion and solar weathering
+
+PROPULSION SYSTEM:
+- Main Engine: Merlin-D (chemical ignition)
+- Plasma Drive: VASIMR (Variable Specific Impulse Magnetoplasma Rocket)
+- Cold Gas Thrusters: Formation flying and station-keeping
+
+PROPULSION DETAILS:
+- Plasma Source: Ionized helium or argon
+- Booster Stage: ICRH (Ion Cyclotron Resonance Heating)
+- Exhaust Nozzle: Magnetic channeling with visible plasma flux
+- Specific Impulse: Up to 5000 seconds in high-power mode
+
+AVIONICS & CONTROL:
+- FPGA Platform: Xilinx Vivado with MicroBlaze processors
+- Language: VHDL-based dynamic control systems
+- Functions: Sensor fusion, attitude control, telemetry routing
+- Architecture: Fault-tolerant, reprogrammable for deep-space adaptation
+
+THERMAL SYSTEMS:
+- Radiators: Graphene-based heat exchangers
+- Cooling Loops: Dual-phase liquid for high-load operations
+- Range: -130°C to +190°C
+
+ENGINEERING GOALS:
+- Survive long-term cosmic exposure and natural disasters
+- Realistic, modular systems for manned or unmanned missions
+- Visual realism suitable for documentation, simulation, or cinematic output
+
+=========================================================================

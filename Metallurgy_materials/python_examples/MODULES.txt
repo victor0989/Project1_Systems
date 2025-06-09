@@ -1,0 +1,42 @@
+=================== SPACECRAFT ENGINEERING MODULES ===================
+
+[MODULE 01] :: VASIMR THRUSTER (Plasma Propulsion Unit)
+    TYPE...............: Magnetic Contained Ion Engine
+    SPECIFIC IMPULSE...: 2000 s – 5000 s (adjustable)
+    PROPULSION MEDIA...: He, Ar, Xe
+    THRUSTER EFFICIENCY: 75%
+    SYSTEM EFFICIENCY..: 65%
+    OUTPUT TEMPERATURE.: ~3000 K (magnetically confined)
+
+[MODULE 02] :: RF PPU (Radio Frequency Power Processing Unit)
+    POWER RATING.......: 48 kW
+    EFFICIENCY.........: 91% – 95%
+    MASS...............: 40.1 kg
+    VOLUME.............: 40x40x120 cm
+    TRL LEVEL..........: 5–6 (qualified in vacuum)
+
+[MODULE 03] :: ICRH BOOSTER (Ion Cyclotron Resonance Heating)
+    POWER STAGE........: 180 kW
+    MASS...............: 87.1 kg
+    GYRO RESONANCE.....: Coupled @ aft section
+    ROLE...............: Post-ionization energy amplification
+
+[MODULE 04] :: STRUCTURAL FUSELAGE
+    MATERIAL TYPE......: Titanium Alloy / Boron Carbide Matrix
+    COATING............: Anti-radiation / Erosion-resistant film
+    HEAT RESISTANCE....: Up to 1500 °C
+    TEXTURE............: Composite micro-lattice w/ nanocoating
+
+[MODULE 05] :: THERMAL CONTROL SYSTEM (TCS)
+    HEAT REJECTION.....: 6400 W
+    COMPONENTS.........: Radiators, Platens, Accumulators
+    OP RANGE...........: -130 °C to +190 °C
+    LOOP...............: Dual Loop – High Temp & Avionics Cooling
+
+[MODULE 06] :: FPGA SENSOR CONTROL ARRAY
+    PLATFORM...........: Xilinx MicroBlaze Soft Processor
+    LANGUAGE...........: VHDL (synthesized via Vivado)
+    ROLE...............: Sensor Fusion, Telemetry, Attitude Control
+    REDUNDANCY.........: Triple Modular Redundant Architecture
+
+=======================================================================

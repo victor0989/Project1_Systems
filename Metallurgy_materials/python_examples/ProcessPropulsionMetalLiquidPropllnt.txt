@@ -1,0 +1,53 @@
+Summary: Engine Calibration and Health Monitoring in Pressurized Liquid Propellant Rockets
+Example 11–2 describes how to convert component test data into nominal engine data for a pressurized liquid rocket engine using 75% ethyl alcohol (fuel) and liquid oxygen (oxidizer). The design aims to achieve 500 lbf of sea-level thrust with a mixture ratio of 1.30. The chamber pressure is nominally 300 psia, with combustion gases having a specific heat ratio (k) of 1.22. Component tests revealed pressure losses in valves, lines, injectors, and cooling jackets.
+
+The following steps are performed:
+
+Correct Test Results:
+
+Thrust chamber data is corrected for deviations in thrust, mixture ratio, and specific impulse.
+
+Specific impulse variation with mixture ratio is negligible due to the close match between actual and desired ratios (1.29 vs. 1.30).
+
+The chamber pressure is corrected to bring thrust down from 541 lbf (test) to 500 lbf (design). Using equations for thrust coefficient (CF), a new pressure of 304 psia is derived.
+
+Flow Rates:
+
+From the specific impulse (223 sec), total propellant mass flow rate is calculated: 2.27 lbm/sec, split into 0.975 lbm/sec fuel and 1.267 lbm/sec oxidizer.
+
+Correct Pressure Drops:
+
+Using a scaling equation that relates pressure drops to flow rate and fluid density, all component losses are recalculated to match design flow conditions.
+
+Example: the fuel injector pressure drop increases to 42.5 psi under actual fuel conditions.
+
+Tank Pressure Calculation:
+
+By summing injector, valve, line losses, chamber pressure, and tank head pressure, required tank pressures are:
+
+Fuel tank: 399.9 psi
+
+Oxidizer tank: 346.6 psi
+
+Pressure Equalization:
+
+To use a single pressure regulator, the system balances pressures by adding a calibrated orifice in the oxidizer line, creating a pressure drop of 52.7 psi.
+
+The required orifice area is computed (assuming a discharge coefficient Cd = 0.60), resulting in an orifice diameter of 0.072 inches.
+
+System Calibration:
+
+These calculations can be programmed into a computer for engine calibration.
+
+Transient performance during engine start can also be accounted for using system dynamic models.
+
+There is a trend toward tighter tolerances in thrust, mixture ratio, and specific impulse, requiring more precise measurement and adjustment than in the past.
+
+Engine Health Monitoring System (HMS)
+An HMS is a sophisticated system that monitors rocket engine performance in real-time.
+
+Key parameters such as chamber pressure, pump speed, and turbine gas inlet temperature are tracked.
+
+HMS can support engine calibration by comparing real-time corrected data with ideal engine data, enabling automated or technician-assisted adjustments (e.g., changing orifices or valve timing).
+
+HMS is crucial during development tests for detecting and addressing potential failures before they occur, significantly improving reliability and engine lifespan.

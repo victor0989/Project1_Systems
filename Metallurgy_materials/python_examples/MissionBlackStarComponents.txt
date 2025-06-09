@@ -1,0 +1,56 @@
+MISSION BRIEFING: FORGING MODULE - BLACKSTAR CLASS
+FONT: Courier New
+TYPE: Resource-Optimized, Deep Space Ready
+
+------------------------------------------------------------
+PROJECT CODE: VULCAN-SENTINEL
+OBJECTIVE: Deploy ultra-resilient forging stations, protected by AI and embedded FPGA systems, to orbit high-gravity zones and extract materials safely from extreme stellar conditions.
+
+PHASE 1 - CORE COMPONENTS
+------------------------------------------------------------
+- Hull: Reinforced Carbon-Carbon + Tungsten mesh
+- Structural Core: Graphene Oxide over Titanium Nanofoam
+- External Shielding: Layered C/C + SiC + Aerographite Absorption Net
+- Inner Framework: Diamond Nanothread Lattices
+- Radiation Shielding: Passive + Magnetic Plasma Deflectors
+- Power: Solar-Ion Hybrid with Thermal Storage Units
+- Sensors:
+   • Quantum LIDAR for 3D mapping in dark gravity zones
+   • Gravitometric Field Sensor (torsion array)
+   • Gamma-Neutrino Radiation Tracers
+   • Thermal Core Integrity Detectors
+- Forger Subsystem:
+   • Magnetically-confined Ion Plasma Forge
+   • Inert-atmosphere Microgravity Casting Bed
+   • Auto-mineral Preprocessor Unit
+
+PHASE 2 - CREW STRATEGY
+------------------------------------------------------------
+- Onboard Human: Optional
+- Suit: Irremovable Alloy-Bonded Biotraje (same materials as ship hull)
+- Survival:
+   • Plasma Envelope for radiation protection
+   • Time-Dilated Sleep Pod w/ memory core for fail-safe mission return
+   • Full AI-Consciousness Link for emergency override
+
+PHASE 3 - TARGET ENVIRONMENTS
+------------------------------------------------------------
+1. Kerr-Type Rotating Black Hole Edge (ergosphere safe band)
+2. Cold Brown Dwarfs with stable magnetic flux
+3. Nickel-Iron exposed planetoids (microgravity surface forgeable)
+4. Ancient Nebulae with dead stellar cores and carbon deposits
+5. Lava-class star corona skimming with heat-deflected hull
+
+MISSION PRIORITY:
+------------------------------------------------------------
+NOTHING MUST MELT
+NOTHING MUST FRACTURE UNDER GRAVITY
+NO METEOR IMPACT SHALL PENETRATE
+THE FORGE MUST RETURN IF THE CREW PERISHES
+
+INTERNAL PROMPT (AI-FPGA CORE):
+------------------------------------------------------------
+"You are a deep space forging AI tasked with maintaining hull and structural integrity under stellar fire, gravitational distortion, and cosmic trauma. Do not allow failure. Adapt forging outputs, balance energy loads, reinforce your own systems and protect the payload. Failure is NOT permitted."
+
+------------------------------------------------------------
+END OF SCRIPT v1.0
