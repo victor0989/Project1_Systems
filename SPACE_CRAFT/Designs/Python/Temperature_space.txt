@@ -1,0 +1,38 @@
+Temperature in Space - Environmental Description
+
+1. Deep Space (Far from Stars and Planets)
+------------------------------------------
+Temperature: ~2.7 K (-270.45 °C)
+Explanation: Cosmic Microwave Background radiation sets this baseline temperature.
+Environment: Near absolute zero; negligible particle density.
+
+2. Near a Star (e.g., Sun)
+--------------------------
+- At Mercury distance (~0.39 AU): Surface temperatures can reach up to 430 °C on sunlit sides.
+- At Earth distance (~1 AU): Objects exposed to sunlight can reach ~120 °C; shadowed areas drop to around -100 °C.
+- At Jupiter distance (~5.2 AU): Average temperature ~-145 °C due to reduced solar flux.
+
+3. Near Massive Stars (e.g., Blue Giants)
+-----------------------------------------
+Surface temperatures on exposed objects can exceed 1000 °C due to intense radiation.
+Radiation types include UV, X-rays; requires advanced thermal shielding.
+
+4. Near Black Holes
+-------------------
+- Far from event horizon: temperatures similar to deep space (~2.7 K).
+- Near accretion disk: plasma temperatures can reach 10^6 to 10^9 K.
+- Extreme X-ray and gamma radiation emitted from infalling matter.
+
+5. Near Jupiter
+--------------
+- Atmospheric average temperature: ~-145 °C.
+- Ionospheres and magnetosphere zones can heat locally due to particle interactions.
+- Moons have very cold surfaces (~-180 °C or lower).
+
+Implications for Spacecraft Design:
+-----------------------------------
+- Use materials with high thermal emissivity and low absorption.
+- Prepare for large thermal gradients between sunlit and shadowed areas.
+- Implement active thermal controls (heaters, radiators, reflective shields).
+- Consider radiation shielding for intense UV, X-ray, and particle fluxes.
+
