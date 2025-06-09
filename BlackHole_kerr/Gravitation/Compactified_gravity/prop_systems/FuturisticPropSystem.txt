@@ -1,0 +1,10 @@
+1. Plasma Injector (VASIMR Nozzle)
+2. Ionization Chamber
+3. Magnetic Containment Coils
+4. Gravity Manipulation Core
+5. Micro Black Hole Reactor
+6. Power Distribution Array
+7. Thermal Radiation Shields
+8. Navigation Control Unit
+9. Fusion Pre-Stabilizer
+10. Quantum Field Stabilizer
