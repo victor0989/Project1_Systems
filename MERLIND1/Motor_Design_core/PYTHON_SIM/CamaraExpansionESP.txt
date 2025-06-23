@@ -1,0 +1,16 @@
+1. Cámara de Expansión – Tobera Estilo Merlin D1
+Diseño: Geometría cónica divergente de doble parábola, con ratio de expansión 1:3.
+
+Longitud: 1.2 metros desde la garganta hasta la campana.
+
+Presión en la cámara (Pc): 6.7 MPa (adaptada del motor Merlin).
+
+Presión en la garganta (Pt): calculada para transición subsónica → supersónica con Mach 1.
+
+Materiales: Inconel 718 recubierto con ZrO₂ cerámico ablativo para disipar calor de plasma a 3000+ K.
+
+Perfil de alabes internos: No presenta alabes clásicos, pero sí un flujo laminar inducido por el campo magnético que guía los residuos de plasma por la tobera.
+
+Aceleración del plasma post-reacción: El plasma confinado es eyectado tras colapsar su
+campo toroidal, generando un impulso tipo NTR (nuclear thermal rocket) + IEP
+(ion electric propulsion).

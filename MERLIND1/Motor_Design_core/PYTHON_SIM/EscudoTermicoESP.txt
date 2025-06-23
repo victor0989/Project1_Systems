@@ -1,0 +1,13 @@
+scudo térmico externo
+
+Estructuras de soporte (base y superior)
+
+Módulo de control/microprocesador
+
+Sensores térmicos y magnéticos etiquetados
+
+Conductos de refrigeración
+
+Tobera Merlin con hueco interior
+
+Alimentación de deuterio como inyector lateral

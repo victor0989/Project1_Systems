@@ -1,0 +1,80 @@
+Descripción Técnica de Componentes del Motor Híbrido Tokamak–Merlin
+1. Tobera Estilo Merlin D1
+Función: Aceleración de gases de escape ionizados para generar empuje.
+
+Geometría: Cónica divergente, con garganta estrecha y apertura amplia.
+
+Materiales propuestos: Superaleaciones de niquel (Inconel 718) y recubrimiento cerámico ablativo en la zona de expansión.
+
+Integración: En contacto directo con el escape térmico del núcleo Tokamak, soportando altas temperaturas y vibraciones mecánicas.
+
+2. Cámara Toroidal de Confinamiento de Plasma (Tokamak Compacto)
+Función: Contener y estabilizar plasma ionizado de deuterio para fusión nuclear.
+
+Diseño: Toroide con sección circular, basado en reactores como EAST o SPARC miniaturizados.
+
+Dimensiones estimadas: R (radio mayor) ≈ 0.6 m, r (radio menor) ≈ 0.12 m.
+
+Materiales: Acero inoxidable 316L reforzado con envoltura de aleación CuCrZr + cerámicos para radiación de neutrones.
+
+3. Solenoide Central
+Función: Inducir corriente de plasma mediante inducción magnética y mantener estabilidad axial.
+
+Geometría: Cilindro macizo alineado con el eje del toroide.
+
+Material: Bobinado superconductivo enfriado criogénicamente (probable NbTi o Nb₃Sn).
+
+4. Bobinas Toroidales
+Función: Crear campo magnético toroidal que mantiene el plasma confinado en forma de dona.
+
+Cantidad: Entre 8 y 12 (dependiendo de simetría y eficiencia de diseño).
+
+Disposición: Equidistantes alrededor del toroide.
+
+Materiales: Superconductores de alta temperatura (HTS) encapsulados en matrices de cobre y resinas epóxicas.
+
+5. Sistema de Inyección de Deuterio
+Función: Introducir gas deuterio ionizable dentro de la cámara toroidal.
+
+Tipo: Inyector lateral tipo gas puffing, con válvulas pulsadas.
+
+Ubicación: Justo en el punto tangencial al toroide.
+
+Tecnología adicional: Opcionalmente acoplado con neutral beam injection para ignición rápida del plasma.
+
+6. Conductos de Refrigeración Criogénica
+Función: Disipar calor del núcleo Tokamak y de las bobinas superconductoras.
+
+Geometría: Tubos circulares dispuestos radialmente alrededor del toroide.
+
+Fluidos de trabajo: Helio supercrítico o nitrógeno líquido en doble circuito cerrado.
+
+Estrategia: Sistema cerrado regenerativo con intercambiadores de calor de pared delgada.
+
+7. Escudo Térmico y Neutrónico
+Función: Proteger la electrónica y la tobera de radiación de neutrones y calor extremo.
+
+Materiales: Capas de carburo de boro, compuestos cerámicos avanzados y fibra de carbono.
+
+Forma: Cilindro exterior concéntrico al toroide, dejando espacio para el sistema de refrigeración.
+
+8. Sensores Térmicos y Magnéticos
+Sensores térmicos: Termopares tipo K y RTDs colocados en zonas críticas del reactor y la tobera.
+
+Sensores magnéticos: Bobinas pick-up y sensores Hall integrados para medir el campo B del confinamiento.
+
+Salidas: Conectadas a nodos de simulación en Python para representar valores dinámicos.
+
+9. Módulo de Control / Nodo de Computación
+Función: Unidad de control autónoma (similar a Raspberry Pi o microcontrolador FPGA) para monitoreo en tiempo real.
+
+Tareas: Modulación de campos magnéticos, gestión de sensores, control térmico, seguridad de inyección de deuterio.
+
+Interfaz: Comunicaciones RS-485 o CAN bus, con redundancia a través de protocolos SpaceWire.
+
+10. Estructuras de Soporte Inferior y Superior
+Función: Soportar el peso combinado del reactor y los sistemas mecánicos, absorbiendo vibraciones.
+
+Materiales: Aleación de titanio Ti-6Al-4V con nervaduras estructurales tipo panal.
+
+Configuración: Cilindros circulares con anclajes al fuselaje de la sonda o nave portadora.
