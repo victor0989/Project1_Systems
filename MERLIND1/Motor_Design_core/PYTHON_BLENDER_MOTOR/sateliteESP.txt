@@ -1,0 +1,14 @@
+opcional:
+-----------------------------------------------------------
+- Dimensiones: 60 x 60 x 80 cm
+- Masa: 120 kg
+- Propulsión:
+   * 2x Hall-effect thrusters (Xe)
+   * 1x mini-liquid bipropellant (ethanol + N2O)
+- Cooling:
+   * Heat pipes en celdas solares
+   * Radiador dorsal activo
+- Control:
+   * Estrella + giroscopios + RTOS personalizado en STM32
+   * Comunicaciones con antena desplegable en banda S
+------------------------------------------------------------
