@@ -1,0 +1,73 @@
+
+============================================================
+| INSTRUMENTATION AND TELEMETRY - S-II STAGE              |
+============================================================
+Instrumentation:
+- Measurement System: Transducers, signal conditioners, distribution.
+- Telemetry System: Multiplexers, oscillators, modulators, RF amps, 4 antennae.
+- Frequency Band: 225–260 MHz, omnidirectional coverage.
+- Data Categories: Low, Medium, High Frequency.
+- Modulations:
+    * PAM/FM/FM, PCM/FM, SS/FM.
+    * PCM/DDAS: Digital encoding, 600 kHz carrier, coaxial cable.
+
+Recording:
+- Onboard tape recorders for blackout phase during separation.
+- Replay during free fall.
+
+============================================================
+| ORDNANCE SYSTEMS                                         |
+============================================================
+1. Stage Separation:
+   - EBW Detonators + Linear Shaped Charges (LSC)
+   - Dual-plane separation: First and second plane.
+   - LSC: 25 grains/ft of RDX.
+   - 28VDC power charging storage capacitors.
+
+2. Ullage Rockets:
+   - 4 motors used in later missions (from 8).
+   - RS-U-601 by Rocketdyne/Hercules.
+   - 22,700 lbT for 3.7 sec.
+
+3. Retros:
+   - TE-M-29-4 Thiokol.
+   - 34,800 lbT for 1.52 sec.
+   - Mounted 90° apart.
+
+4. Propellant Dispersion System (Flight Termination):
+   - Dual RF command: ARM + DETONATE.
+   - LOX Destruct Charge: 800 grains/ft RDX.
+   - LH2 LSC: 30-foot vertical cut.
+
+============================================================
+| FIRING PROCEDURE - REDSTONE MISSILE                     |
+============================================================
+Prelaunch:
+- Alcohol/Liquid Oxygen fill via trailers and fueling ladder.
+- Water/lithium chloride in cooling jacket (based on temperature).
+- Peroxide, alcohol, LOX tank pressurization to 21–31 psi.
+
+Power Transfer:
+- Switchover from ground to missile battery power.
+- Heater-cooler drop tank released post tie-in.
+
+Final Checks:
+- Range computer, cutoff computer, lateral computer, warhead.
+- Remote firing box activation.
+
+============================================================
+| DALL·E IMAGE PROMPTS                                     |
+============================================================
+Prompt 1:
+"Exploded diagram of a rocket stage telemetry system with omnidirectional antennae, tape recorders, and multiple telemetry bands, blueprint cutaway."
+
+Prompt 2:
+"Cross-section view of a dual-stage rocket showing ullage rockets, EBW detonators, separation planes, and LSC routing in blueprint format."
+
+Prompt 3:
+"High-detail schematic of a Redstone missile fueling and firing process with LOX trailers, peroxide tanks, and power transfer sequence."
+
+Prompt 4:
+"Technical illustration of S-II retro and ullage rocket mounting, canted nozzle layout and ordnance wiring, engineering draft style."
+
+============================================================
