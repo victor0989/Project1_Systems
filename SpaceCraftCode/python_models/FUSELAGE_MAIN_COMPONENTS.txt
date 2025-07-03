@@ -1,0 +1,35 @@
+1. MAIN_FUSELAGE
+Spacecraft fuselage made of nanotitanium with honeycomb carbon fibers, supporting solar plasma
+
+2. HEAT_SHIELD
+Multi-layer ablative heat shield with metallic layers of beryllium and carbon ceramic, designed for the Sun
+
+3. MAIN_PROPULSION
+Futuristic VASIMR engine with fusion reactor, hafnium-boron coated nozzles, and tungsten-carbon alloy
+
+4. SECONDARY_THRUSTERS
+Small microplasma vector engines with niobium-tantalum casing and blue xenon jet
+
+5. COCKPIT_AND_CONTROL
+Futuristic spacecraft cockpit with graphene glass dome, integrated AI, and quantum gravitational console
+
+6. GRAVITATION_AND_MAGNETIC_SHIELD
+Quantum shield with superconducting rings and visible magnetic field, resisting gravitational waves
+
+7. POWER_PANEL
+Adaptive solar panel with multi-layer PERC cells and nanoaluminum shield, on a bright space background
+
+8. QUANTUM_SENSORS
+Quantum sensor module in a sapphire capsule with lithium niobate chips, measuring extreme gravity
+
+9. INSULATION_AND_INTERNAL_LAYER
+Internal layers of the ship with aerofoam, encapsulated thermal gel, and 3D carbon fiber with thermal channels
+
+10. FPGA_CONTROL_MODULE
+Central control module with FPGAs, RTOS, and ceramic PCB, in a dark, technical environment
+
+11. DOORS AND HATCHES
+Futuristic hatch with active heat sealing and ceramic-reinforced liquid metal, in a metal fuselage
+
+12. ANTENNAS AND COMMUNICATIONS
+Graphene parabolic antenna with blue quantum beam emitters, transmitting out of real time
